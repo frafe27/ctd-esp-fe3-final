@@ -5,6 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  
+}
+.logo {
+  width: 5em;
+  height: 5em;
+}
+.logo:hover {
+  transition: ease-in-out 0.5s;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 code {
@@ -19,15 +30,44 @@ code {
   cursor: pointer;
 }
 
-h1{
+h1, h2{
   text-align: center;
+  transition: color 1s ease;
 }
 
 nav{
   display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #718f9b;
+  transition: background-color 0.5s ease;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 9999;
+}
+
+nav a{
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover{
+  color: rgb(113, 161, 170);
+}
+
+nav ul{
+  height: 50px;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  
+}
+
+nav li{
+  margin: 0 0.3rem;
+  
 }
 
 a{
@@ -40,16 +80,36 @@ a:hover{
   color: rgb(136, 136, 136);
 } 
 
+main, .contact, .favs, .details{
+  flex: 1;
+  /* flex-grow: 1; */
+  padding-top: 4.5rem;
+  height: 100%;
+  min-height: 770px;
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+p{
+  transition: color 1s ease;
+}
+
+button{
+  transition: color 1s ease;
+}
+
 footer {
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
+  margin-top: auto;
   position: relative;
   bottom: 0;
-  width: 90%;
-  height: 40px;
-  margin-top: 2rem;
+  width: 100%;
+  height: 5vh;
+
+  background-color: #718f9b;
+  transition: background-color 0.5s ease;
 }
 
 footer > img{
@@ -61,43 +121,132 @@ footer > p{
   padding-top: 0.7rem;
 }
 
+.contact{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact .success{
+  color: green;
+}
+
 form{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 300px;
-  height: 100px;
   margin: 0 auto;
 }
+
+form input{
+  border: none;
+  border-bottom: 1px solid gray;
+  height: 20px;
+  margin-bottom: 1rem;
+  transition: background-color 0.5s ease, border-bottom 0.5s ease;
+}
+
+form input:focus{
+  outline: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+form button{
+  cursor: pointer;
+  background-color: darkgray;
+  border: none;
+  border-radius: 30px;
+  height: 2rem;
+  width: 6rem;
+  margin: 0 auto;
+}
+
+form button:hover{
+  color: white;
+  background-color: rgb(136, 136, 136);
+  transition: ease-in-out 0.1s;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+textarea {
+  resize: none; 
+  width: 100%; 
+  height: 150px;
+  margin-bottom: 1rem;
+}
+
 
 .card{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
   width: 200px;
-  padding: 0.5rem 0.5rem 0 0.5rem;
-  border: 0.5px solid rgb(136, 136, 136);
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.5s ease;
+  margin-top: 0.1rem;
+  background-color: #dddddd;
 }
 
 .card:hover{
-  border: 0.5px solid rgb(206, 217, 142);
+  transform: scale(1.05);
 }
 
-.card-grid{
-  display: flex;
-  justify-content: space-evenly;
+.card img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.card p{
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.card button{
+  border-radius: 0 0 30px 30px;
+  background-color: rgb(113, 161, 170);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.card button:hover{
+  background-color: rgb(205, 236, 241);
+  color: rgb(113, 161, 170);
+}
+
+.card button:active{
+  background-color: rgb(113, 161, 170);
+  color: rgb(205, 236, 241);
+}
+
+.card:hover{
+  border: 0.5px solid rgb(205, 236, 241);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas de tamaño flexible */
   gap: 1rem;
   width: 90vw;
-  height: auto;
-  flex-wrap: wrap;
   margin: 0 auto;
+  padding: 2rem;
 }
+
+.details{
+  text-align: center;
+}
+
 
 table {
  border-collapse: collapse;
     border-spacing: 0;
-    width: 100%;
+    margin: 0 auto;
     display: table;
     border: 1px solid #ccc;
 
@@ -114,9 +263,118 @@ tr:nth-child(even) {
 }
 
 .dark{
-  background-color: #12121296;
+  background-color: rgb(0, 0, 50);
+  color: white;
+  transition: background-color 0.5s ease;
+}
+
+.dark main, .dark .contact, .dark .favs, .dark .details{
+  background-color: rgb(54,57,63);
+  color: white;
+  transition: background-color 0.5s ease;
+}
+
+.dark nav{
+  background-color: #000;
+}
+
+.dark a {
   color: white;
 }
-.dark > a {
+
+.dark .card{
+  background-color: black;
+}
+
+.dark .card button{
+  background-color: rgb(39, 39, 39);
   color: white;
+}
+
+.dark form input{
+  border: none;
+  border-bottom: 1px solid rgb(128, 128, 128);
+  background-color: rgb(54,57,63);
+  color: white;
+}
+
+.dark form textarea{
+  border: none;
+  background-color: rgb(32,34,37);
+  color: white;
+  border-radius: 2px;
+}
+
+.dark form button{
+  border: none;
+  background-color: rgb(32,34,37);
+}
+
+.dark .card button:hover{
+  background-color: rgb(40,40,48);
+  color: rgb(255, 255, 255);
+}
+
+.dark .card button:active{
+  background-color: rgb(40,40,48);
+  color: rgb(255, 255, 255);
+}
+
+.dark form input::placeholder{
+  color: rgb(255, 255, 255);
+}
+
+.dark form input:focus{
+  outline: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.dark footer{
+  background-color: #000;
+}
+
+/* themeSwitch  */
+
+.toggleSwitch {
+  width: 80px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 3rem;
+}
+
+.toggleSwitch:hover{
+  transition: ease-in-out 0.5s;
+  transform: scale(1.05);
+  box-shadow: #dddddd 0px 0px 10px 5px;
+}
+
+.toggleSwitch label {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: yellow;
+  border-radius: 50px;
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 3px rgba(125, 125, 125, 0.709));
+}
+
+.toggleSwitch input {
+  position: absolute;
+  display: none;
+
+}
+
+.toggleSwitch .slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.toggleSwitch input:checked ~ .slider {
+  background-color: rgb(0, 0, 50);
+  transform: scale(1.03);
 }
